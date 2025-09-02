@@ -40,9 +40,3 @@ ctfutils/
 └── .gitignore                # Archivos a ignorar en Git
 
 
-mínimo viable , funcionalidad , plantear 
-
-librería funcional. publicado en pipy que este publicado en git hub
-
-
-examen : ajustes compilar y public en pypi
