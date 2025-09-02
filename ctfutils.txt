@@ -1,0 +1,48 @@
+ctfutils/
+├── ctfutils/                    # Paquete principal
+│   ├── __init__.py             # Inicialización del paquete
+│   ├── crypto/                 # Módulo de criptografía
+│   │   ├── __init__.py
+│   │   ├── classical.py        # Cifrados clásicos (César, Vigenère, etc.)
+│   │   ├── modern.py          # Algoritmos modernos (AES, RSA helpers)
+│   │   └── hashing.py         # Funciones de hash y análisis
+│   ├── stego/                 # Módulo de esteganografía
+│   │   ├── __init__.py
+│   │   ├── image.py           # Esteganografía en imágenes
+│   │   ├── audio.py           # Esteganografía en audio
+│   │   └── text.py            # Esteganografía en texto
+│   ├── forensics/             # Módulo de análisis forense
+│   │   ├── __init__.py
+│   │   ├── network.py         # Análisis de tráfico de red
+│   │   ├── files.py           # Análisis de archivos
+│   │   └── memory.py          # Análisis de memoria
+│   ├── misc/                  # Utilidades varias
+│   │   ├── __init__.py
+│   │   ├── encodings.py       # Codificaciones y conversiones
+│   │   ├── converters.py      # Conversores de formato
+│   │   └── utils.py           # Utilidades generales
+│   └── exceptions.py          # Excepciones personalizadas
+├── tests/                     # Tests unitarios
+│   ├── __init__.py
+│   ├── test_crypto.py
+│   ├── test_stego.py
+│   ├── test_forensics.py
+│   └── test_misc.py
+├── docs/                      # Documentación
+│   └── examples/              # Ejemplos de uso
+├── requirements.txt           # Dependencias de desarrollo
+├── requirements-dev.txt       # Dependencias de desarrollo
+├── pyproject.toml            # Configuración del proyecto (recomendado)
+├── setup.cfg                 # Configuración alternativa
+├── README.md                 # Documentación principal
+├── LICENSE                   # Licencia MIT
+├── CHANGELOG.md              # Registro de cambios
+└── .gitignore                # Archivos a ignorar en Git
+
+
+mínimo viable , funcionalidad , plantear 
+
+librería funcional. publicado en pipy que este publicado en git hub
+
+
+examen : ajustes compilar y public en pypi
