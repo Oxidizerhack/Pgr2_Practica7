@@ -202,3 +202,48 @@ git commit -m "feat: nueva herramienta épica"
 *Licencia MIT - Úsalo, modifícalo, compártelo*
 
 </div>
+
+---
+
+## 📦 Instalación desde PyPI
+
+Una vez que la librería esté publicada en PyPI, podrás instalarla fácilmente:
+
+### 🚀 Instalación Simple
+```bash
+# Instalar desde PyPI
+pip install ctfutils
+```
+
+### 🔧 Instalación con Dependencias de Desarrollo  
+```bash
+# Para contribuidores y desarrolladores
+pip install ctfutils[dev]
+```
+
+### 🐍 Uso después de la instalación
+```python
+# Importar directamente desde PyPI
+from ctfutils.crypto.classical import CaesarCipher
+from ctfutils.stego.text import ZeroWidthSteganography
+from ctfutils.forensics.files import FileAnalyzer
+
+# ¡Listo para usar en tus CTFs!
+cipher = CaesarCipher()
+result = cipher.brute_force("ENCRYPTED_TEXT")
+```
+
+### 📋 Comandos de Publicación (para maintainers)
+```bash
+# 1. Generar distribución
+python -m build
+
+# 2. Verificar paquete
+python -m twine check dist/*
+
+# 3. Subir a PyPI
+python -m twine upload dist/*
+
+# 4. Verificar instalación
+pip install ctfutils
+```
