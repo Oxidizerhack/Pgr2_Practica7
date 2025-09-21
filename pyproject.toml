@@ -9,10 +9,10 @@ description = "A comprehensive toolkit for CTF (Capture The Flag) competitions a
 readme = "README.md"
 license = {text = "MIT"}
 authors = [
-    {name = "Oxidizerhack", email = "tu-email@example.com"}
+    {name = "Oxidizerhack", email = "jhonnyantoquispe@gmail.com"}
 ]
 maintainers = [
-    {name = "Oxidizerhack", email = "tu-email@example.com"}
+    {name = "Oxidizerhack", email = "jhonnyantoquispe@gmail.com"}
 ]
 keywords = ["ctf", "cybersecurity", "crypto", "steganography", "forensics"]
 classifiers = [
@@ -43,6 +43,6 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/Oxidizerhack/ctfutils"
-Repository = "https://github.com/Oxidizerhack/ctfutils"
-Issues = "https://github.com/Oxidizerhack/ctfutils/issues"
+Homepage = "https://github.com/Oxidizerhack/PGR2_Practica7"
+Repository = "https://github.com/Oxidizerhack/PGR2_Practica7"
+Issues = "https://github.com/Oxidizerhack/PGR2_Practica7/issues"

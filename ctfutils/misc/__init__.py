@@ -1,10 +1,19 @@
 """Miscellaneous utilities for CTF challenges."""
 
+# Import classes (new OOP approach)
+from .converters import NumberConverter, TextConverter, StringManipulator
+from .utils import WordlistGenerator, MathUtils, ValidationUtils, StringDistance
+
+# Import backward compatibility functions
 from .encodings import *
 from .converters import *
 from .utils import *
 
 __all__ = [
+    # Classes
+    'NumberConverter', 'TextConverter', 'StringManipulator',
+    'WordlistGenerator', 'MathUtils', 'ValidationUtils', 'StringDistance',
+    
     # Encodings
     'hex_encode', 'hex_decode', 'binary_encode', 'binary_decode',
     'base32_encode', 'base32_decode', 'url_encode', 'url_decode',

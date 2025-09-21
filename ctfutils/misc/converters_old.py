@@ -354,3 +354,126 @@ def extract_letters(text: str) -> str:
 def char_frequency(text: str) -> dict:
     """Backward compatibility function."""
     return StringManipulator.char_frequency(text)
+    try:
+        # Handle different separators
+        if ',' in ascii_values:
+            values = ascii_values.split(',')
+        else:
+            values = ascii_values.split()
+        
+        return ''.join([chr(int(val.strip())) for val in values])
+    except Exception as e:
+        raise EncodingError(f"Invalid ASCII values: {e}")
+
+def reverse_string(text: str) -> str:
+    """
+    Reverse a string.
+    
+    Args:
+        text: Input text
+        
+    Returns:
+        Reversed text
+    """
+    return text[::-1]
+
+def swap_case(text: str) -> str:
+    """
+    Swap case of all letters.
+    
+    Args:
+        text: Input text
+        
+    Returns:
+        Case-swapped text
+    """
+    return text.swapcase()
+
+def remove_whitespace(text: str, replace_with: str = '') -> str:
+    """
+    Remove all whitespace from text.
+    
+    Args:
+        text: Input text
+        replace_with: What to replace whitespace with
+        
+    Returns:
+        Text without whitespace
+    """
+    import re
+    return re.sub(r'\s+', replace_with, text)
+
+def chunk_string(text: str, chunk_size: int) -> List[str]:
+    """
+    Split string into chunks of specified size.
+    
+    Args:
+        text: Input text
+        chunk_size: Size of each chunk
+        
+    Returns:
+        List of chunks
+    """
+    return [text[i:i+chunk_size] for i in range(0, len(text), chunk_size)]
+
+def interleave_strings(str1: str, str2: str) -> str:
+    """
+    Interleave characters from two strings.
+    
+    Args:
+        str1: First string
+        str2: Second string
+        
+    Returns:
+        Interleaved string
+    """
+    result = ""
+    max_len = max(len(str1), len(str2))
+    
+    for i in range(max_len):
+        if i < len(str1):
+            result += str1[i]
+        if i < len(str2):
+            result += str2[i]
+    
+    return result
+
+def extract_numbers(text: str) -> List[int]:
+    """
+    Extract all numbers from text.
+    
+    Args:
+        text: Input text
+        
+    Returns:
+        List of numbers found
+    """
+    import re
+    return [int(match) for match in re.findall(r'-?\d+', text)]
+
+def extract_letters(text: str) -> str:
+    """
+    Extract only letters from text.
+    
+    Args:
+        text: Input text
+        
+    Returns:
+        Only letters
+    """
+    return ''.join([char for char in text if char.isalpha()])
+
+def char_frequency(text: str) -> dict:
+    """
+    Calculate character frequency.
+    
+    Args:
+        text: Input text
+        
+    Returns:
+        Dictionary with character frequencies
+    """
+    frequency = {}
+    for char in text:
+        frequency[char] = frequency.get(char, 0) + 1
+    return frequency
