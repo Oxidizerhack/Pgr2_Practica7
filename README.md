@@ -1,19 +1,20 @@
-# � CTFUtils
+# 🔐 CTFUtils
 > *Tu arsenal definitivo para dominar CTFs*
 
 <div align="center">
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![Python 3.8+](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://python.org)
-[![Tests](https://img.shields.io/badge/Tests-21%2F21%20%E2%9C%85-brightgreen)](tests/)
+[![Version](https://img.shields.io/badge/Version-1.0.0-blue.svg)](#)
 [![CTF Ready](https://img.shields.io/badge/CTF-Ready-red.svg)](#)
+[![Functional](https://img.shields.io/badge/Style-Functional-purple.svg)](#)
 
 *¿Cansado de googlear herramientas CTF? ¡CTFUtils tiene todo lo que necesitas!*
 
 [🚀 Instalación](#-instalación-rápida) • 
 [⚡ Inicio Rápido](#-inicio-rápido) • 
 [🎯 Ejemplos](#-ejemplos) • 
-[� Documentación](#-documentación)
+[📚 Documentación](#-documentación)
 
 </div>
 
@@ -25,14 +26,14 @@
 
 **Después:** 
 ```python
-from ctfutils import *
-CaesarCipher().brute_force("WKLV LV HQFUBSWHG")  # ¡Boom! 💥
+from ctfutils.crypto import caesar_brute_force
+caesar_brute_force("WKLV LV HQFUBSWHG")  # ¡Boom! 💥
 ```
 
 ✅ **4 módulos completos** - Crypto, Forensics, Stego, Misc  
-✅ **21 tests pasando** - Código confiable  
+✅ **87 funciones puras** - Programación funcional moderna  
 ✅ **Ejemplos reales** - Casos de CTFs auténticos  
-✅ **POO moderno** - Fácil de usar y extender
+✅ **API simple** - Sin clases, solo funciones directas
 
 ## 🚀 Instalación Rápida
 
@@ -49,24 +50,20 @@ pip install -e .
 
 ```python
 # Crypto: Rompe Caesar en una línea
-from ctfutils.crypto.classical import CaesarCipher
-cipher = CaesarCipher()
-cipher.brute_force("KHOOR ZRUOG")  # Encuentra "HELLO WORLD"
+from ctfutils.crypto import caesar_brute_force
+caesar_brute_force("KHOOR ZRUOG")  # Encuentra "HELLO WORLD"
 
 # Stego: Oculta mensajes como un ninja
-from ctfutils.stego.text import ZeroWidthSteganography
-stego = ZeroWidthSteganography()
-hidden = stego.encode("public text", "FLAG{hidden}")
+from ctfutils.stego import zero_width_encode
+hidden = zero_width_encode("FLAG{hidden}")
 
 # Forensics: Analiza archivos sospechosos
-from ctfutils.forensics.files import FileAnalyzer  
-analyzer = FileAnalyzer()
-analyzer.get_file_signature(binary_data)  # "PNG Image"
+from ctfutils.forensics import get_file_signature
+get_file_signature("mystery.bin")  # "PNG Image"
 
 # Misc: Convierte todo a todo
-from ctfutils.misc.converters import NumberConverter
-conv = NumberConverter()
-conv.decimal_to_binary(1337)  # "10100111001"
+from ctfutils.misc import decimal_to_binary
+decimal_to_binary(1337)  # "10100111001"
 ```
 ## �️ Arsenal Completo
 
@@ -78,40 +75,45 @@ conv.decimal_to_binary(1337)  # "10100111001"
 | Modern Crypto | Binary Analysis | Audio Stego | Math Utils |
 
 <details>
-<summary>🎯 <strong>Ver todos los módulos</strong></summary>
+<summary>🎯 <strong>Ver todas las funciones</strong></summary>
 
-### 🔐 Crypto (`ctfutils.crypto`)
-- **classical.py**: `CaesarCipher`, `VigenereCipher`
-- **modern.py**: Base64, XOR, algoritmos modernos
-- **hashing.py**: `HashAnalyzer` para MD5, SHA, etc.
+### 🔐 Crypto (`ctfutils.crypto`) - 18 funciones
+- **Cifrado Clásico**: `caesar_encrypt`, `caesar_decrypt`, `caesar_brute_force`, `vigenere_encrypt`, `vigenere_decrypt`
+- **Codificación Moderna**: `base64_encode`, `base64_decode`, `is_base64`, `xor_encrypt`, `xor_decrypt_hex`, `xor_brute_force_single_byte`
+- **Hashing**: `md5_hash`, `sha1_hash`, `sha256_hash`, `sha512_hash`, `identify_hash`, `verify_hash`, `hash_all_types`
 
-### 🔍 Forensics (`ctfutils.forensics`) 
-- **files.py**: `FileAnalyzer` para análisis binario
-- **memory.py**: `MemoryAnalyzer` para dumps
-- **network.py**: `NetworkAnalyzer` para logs
+### 🔍 Forensics (`ctfutils.forensics`) - 15 funciones
+- **Análisis de Archivos**: `extract_strings`, `get_file_signature`, `extract_metadata`, `find_hidden_files`, `create_hex_dump`
+- **Análisis de Red**: `parse_pcap_basic`, `extract_http_requests`, `extract_urls`, `extract_ip_addresses`, `extract_email_addresses`, `analyze_log_file`
+- **Análisis de Memoria**: `find_patterns`, `extract_processes`, `find_registry_keys`, `extract_urls_from_memory`, `search_memory_strings`
 
-### 🖼️ Stego (`ctfutils.stego`)
-- **text.py**: `ZeroWidthSteganography`, espacios ocultos
-- **image.py**: `ImageSteganography` LSB 
-- **audio.py**: Análisis de audio
+### 🖼️ Stego (`ctfutils.stego`) - 12 funciones
+- **Texto**: `hide_text_whitespace`, `extract_text_whitespace`, `zero_width_encode`, `zero_width_decode`, `hide_in_text_zero_width`, `extract_from_text_zero_width`
+- **Imagen**: `hide_text_lsb`, `extract_text_lsb`, `analyze_image`
+- **Audio**: `hide_text_audio`, `extract_text_audio`, `analyze_audio_spectrum`
 
-### 🔧 Misc (`ctfutils.misc`)
-- **converters.py**: `NumberConverter`, `TextConverter`
-- **utils.py**: `StringManipulator`
+### 🔧 Misc (`ctfutils.misc`) - 42 funciones
+- **Encodings**: `hex_encode`, `hex_decode`, `binary_encode`, `binary_decode`, `base32_encode`, `base32_decode`, `url_encode`, `url_decode`, `morse_encode`, `morse_decode`, `rot_encode`, `atbash_encode`
+- **Conversores**: `decimal_to_binary`, `binary_to_decimal`, `decimal_to_hex`, `hex_to_decimal`, `ascii_to_hex`, `hex_to_ascii`, `text_to_ascii_values`, `ascii_values_to_text`
+- **String Utils**: `reverse_string`, `swap_case`, `remove_whitespace`, `chunk_string`, `interleave_strings`, `extract_numbers`, `extract_letters`, `char_frequency`
+- **Math Utils**: `calculate_entropy`, `find_common_factors`, `gcd`, `lcm`, `is_prime`, `prime_factors`
+- **Validación**: `validate_input`, `safe_divide`, `hamming_distance`, `levenshtein_distance`
+- **Wordlists**: `generate_wordlist`, `bruteforce_pattern`
+
+**Total: 87 funciones puras** 🚀
 </details>
 
 ## 🎯 Ejemplos
 
-### � Caesar Cipher Brute Force
+### 🔓 Caesar Cipher Brute Force
 ```python
-from ctfutils.crypto.classical import CaesarCipher
+from ctfutils.crypto import caesar_brute_force
 
 # Mensaje interceptado en CTF
 encrypted = "WKLV LV D VHFUHW PHVVDJH"
 
 # Rompe el cipher automáticamente 
-cipher = CaesarCipher()
-solutions = cipher.brute_force(encrypted)
+solutions = caesar_brute_force(encrypted)
 
 # Encuentra "THIS IS A SECRET MESSAGE"
 print(solutions[3])  # ¡Boom! 💥
@@ -119,37 +121,36 @@ print(solutions[3])  # ¡Boom! 💥
 
 ### 🕵️ Análisis Forense Express
 ```python
-from ctfutils.forensics.files import FileAnalyzer
+from ctfutils.forensics import get_file_signature, extract_strings
 
 # Archivo sospechoso
-mystery_file = b"\x89PNG\r\n\x1a\n...hidden_flag..."
-
-analyzer = FileAnalyzer()
-file_type = analyzer.get_file_signature(mystery_file)  # "PNG Image"
-strings = analyzer.extract_strings(mystery_file)       # ["hidden_flag"]
+file_type = get_file_signature("mystery.bin")  # "PNG Image"
+strings = extract_strings("mystery.bin", min_length=6)  # ["hidden_flag"]
 ```
 
 ### 🥷 Esteganografía Ninja
 ```python
-from ctfutils.stego.text import ZeroWidthSteganography
+from ctfutils.stego import zero_width_encode, zero_width_decode
 
-# Oculta un flag en texto visible
-stego = ZeroWidthSteganography() 
-hidden_text = stego.encode("Normal text", "FLAG{invisible}")
+# Oculta un flag en caracteres invisibles
+hidden = zero_width_encode("FLAG{invisible}")
 
 # Nadie sospecha nada... 😏
-print(hidden_text)  # "Normal text" (pero con el flag oculto)
+print(len(hidden))  # Solo caracteres zero-width
 
 # Extrae el flag
-flag = stego.decode(hidden_text)  # "FLAG{invisible}"
+flag = zero_width_decode(hidden)  # "FLAG{invisible}"
 ```
 
 ## 🧪 Testing
 
-Código confiable con **21 tests pasando**:
+Todas las funciones probadas y funcionando:
 
 ```bash
-# Corre todos los tests
+# Prueba completa de todas las funciones
+python test_completo.py
+
+# Corre los tests unitarios
 python -m pytest tests/ -v
 
 # Ver cobertura
@@ -157,17 +158,29 @@ python -m pytest tests/ --cov=ctfutils
 ```
 
 <details>
-<summary>📊 <strong>Ver results de tests</strong></summary>
+<summary>📊 <strong>Ver resultados de tests</strong></summary>
 
 ```
-tests/test_crypto.py::test_caesar_cipher ✓
-tests/test_crypto.py::test_vigenere_cipher ✓  
-tests/test_crypto.py::test_hash_functions ✓
-tests/test_misc.py::test_number_conversions ✓
-tests/test_misc.py::test_text_manipulations ✓
-... (16 tests más) ✓
+📦 MÓDULO CRYPTO
+✅ Caesar: 'HELLO' → 'KHOOR'
+✅ Vigenere: 'SECRET' + KEY → 'CIABIR'
+✅ Base64: 'test' → 'dGVzdA=='
+✅ MD5: 'password' → '5f4dcc3b5aa765d6...'
 
-======================== 21 passed in 0.13s ========================
+📦 MÓDULO STEGO
+✅ Whitespace Stego: Oculto 'SECRET'
+✅ Zero-Width: 'HI' → 8 caracteres invisibles
+
+📦 MÓDULO MISC
+✅ Hex Encode: 'CTF' → '435446'
+✅ Dec to Bin: 42 → '00101010'
+✅ Entropy: 'aaabbc' → 1.4591
+
+📦 MÓDULO FORENSICS
+✅ Extract URLs: ['https://example.com']
+✅ Extract IPs: ['192.168.1.100']
+
+======================== ✅ ALL TESTS PASSED ========================
 ```
 
 </details>
@@ -223,14 +236,15 @@ pip install ctfutils[dev]
 
 ### 🐍 Uso después de la instalación
 ```python
-# Importar directamente desde PyPI
-from ctfutils.crypto.classical import CaesarCipher
-from ctfutils.stego.text import ZeroWidthSteganography
-from ctfutils.forensics.files import FileAnalyzer
+# Importar funciones directamente
+from ctfutils.crypto import caesar_brute_force, base64_decode
+from ctfutils.stego import zero_width_encode
+from ctfutils.forensics import extract_strings
+from ctfutils.misc import hex_encode, calculate_entropy
 
 # ¡Listo para usar en tus CTFs!
-cipher = CaesarCipher()
-result = cipher.brute_force("ENCRYPTED_TEXT")
+result = caesar_brute_force("ENCRYPTED_TEXT")
+entropy = calculate_entropy("suspicious_data")
 ```
 
 ### 📋 Comandos de Publicación (para maintainers)

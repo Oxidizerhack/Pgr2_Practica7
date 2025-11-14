@@ -1,20 +1,47 @@
 """Steganography utilities for CTF challenges."""
 
-# Import classes (new OOP approach)
-from .text import TextSteganography, ZeroWidthSteganography
-from .image import ImageSteganography
-from .audio import AudioSteganography
+# Import text steganography functions
+from .text import (
+    hide_text_whitespace,
+    extract_text_whitespace,
+    zero_width_encode,
+    zero_width_decode,
+    hide_in_text_zero_width,
+    extract_from_text_zero_width
+)
 
-# Import backward compatibility functions
-from .text import hide_text_whitespace, extract_text_whitespace
-from .image import hide_text_lsb, extract_text_lsb
+# Import image steganography functions
+from .image import (
+    hide_text_lsb,
+    extract_text_lsb,
+    analyze_image
+)
+
+# Import audio steganography functions (placeholder)
+from .audio import (
+    hide_text_audio,
+    extract_text_audio,
+    analyze_audio_spectrum,
+    detect_lsb_audio
+)
 
 __all__ = [
-    # Classes
-    'TextSteganography', 'ZeroWidthSteganography', 
-    'ImageSteganography', 'AudioSteganography',
+    # Text steganography
+    'hide_text_whitespace',
+    'extract_text_whitespace',
+    'zero_width_encode',
+    'zero_width_decode',
+    'hide_in_text_zero_width',
+    'extract_from_text_zero_width',
     
-    # Backward compatibility functions
-    'hide_text_whitespace', 'extract_text_whitespace',
-    'hide_text_lsb', 'extract_text_lsb'
+    # Image steganography
+    'hide_text_lsb',
+    'extract_text_lsb',
+    'analyze_image',
+    
+    # Audio steganography (placeholder)
+    'hide_text_audio',
+    'extract_text_audio',
+    'analyze_audio_spectrum',
+    'detect_lsb_audio'
 ]
